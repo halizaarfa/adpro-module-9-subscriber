@@ -22,3 +22,12 @@ Digunakan pola publish/subscribe dimana handler melakukan listen pesan dengan to
 - `guest` kedua : password untuk autentikasi RabbitMQ.
 - `localhost` : alamat host server AMQP, artinya server berjalan di mesin lokalm.
 - `5672` : default port yang digunakan AMQP dan akan digunakan server RabbitMQ untuk melakukan listen dari koneksi.
+
+
+## Message Broker with RabbitMQ
+
+### Simulation Slow Subscriber
+![1-simulation-slow.png](1-simulation-slow.png)
+Subscriber dibuat lebih lamban dalam menerima atau mengelola data dari message broker dengan delay 1 detik untuk setiap prosesnya.
+Yang terjadi adalah queued messages pada message broker akan bertambah seiring dengan bertambahnya delay yang diberikan karena publisher lebih cepat mengirim dibandingkan subscriber yang menerima.
+Pada kasus di atas, banyaknya queued messages pada message broker adalah 11 untuk tiga kali melakukan run publisher.
