@@ -31,3 +31,12 @@ Digunakan pola publish/subscribe dimana handler melakukan listen pesan dengan to
 Subscriber dibuat lebih lamban dalam menerima atau mengelola data dari message broker dengan delay 1 detik untuk setiap prosesnya.
 Yang terjadi adalah queued messages pada message broker akan bertambah seiring dengan bertambahnya delay yang diberikan karena publisher lebih cepat mengirim dibandingkan subscriber yang menerima.
 Pada kasus di atas, banyaknya queued messages pada message broker adalah 11 untuk tiga kali melakukan run publisher.
+
+### Running Three Subscribers
+![2-three-subscribers.png](2-three-subscribers.png)
+![3-three-subscribers.png](3-three-subscribers.png)
+Hal yang sama dilakukan seperti pada bagian Simulation Slow Subscriber. Jika kita menjalankan lebih satu subcribers, pengiriman data jauh lebih cepat dan pada gambar di atas terlihat bahwa tidak ada yang masuk ke dalam queued messages pada message broker.
+Hal ini terjadi karena message broker akan mendistribusikan data yang diterima dari Publisher ke banyak subscribers yang terhubung.
+
+### Reflection
+Tanpa mengubah kode dari program, bisa diperoleh hasil yang berbeda dengan mengubah konfigurasi message broker atau jumlah dari subscriber yang berjalan. Hal ini yang disebut dengan event-driven architecture.
